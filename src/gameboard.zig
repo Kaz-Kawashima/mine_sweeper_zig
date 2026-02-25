@@ -262,8 +262,10 @@ pub const GameBoard = struct {
                         _ = self.openPos(row + 1, col + 1);
                     }
                 },
-                else => {
-                    std.debug.print("AAAAA!!!", .{});
+                .BorderPanel => {},
+                .BombPanel => {
+                    std.debug.assert(false);
+                    // std.debug.print("AAAAA!!!", .{});
                 },
             }
         }
