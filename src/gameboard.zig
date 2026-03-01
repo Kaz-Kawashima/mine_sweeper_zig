@@ -88,6 +88,9 @@ pub const GameBoard = struct {
             const random = prng.random();
             const y = random.uintLessThan(usize, self.size_y + 1);
             const x = random.uintLessThan(usize, self.size_x + 1);
+            if ((y == self.cursor_row) and (x == self.cursor_col)) {
+                continue;
+            }
             const panel = &self.field.items[y].items[x];
             const f = panel.isFlagged();
             switch (panel.*) {
